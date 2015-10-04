@@ -23,4 +23,7 @@ do
     eval $setenv
 done
 
+#WAIT FOR THE REDIS SERVER TO BOOT
+sleep 30
+
 exec "$@"
