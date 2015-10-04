@@ -24,6 +24,6 @@ do
 done
 
 #WAIT FOR THE REDIS SERVER TO BOOT
-sleep 30
+#sleep 30
 
 exec "$@"

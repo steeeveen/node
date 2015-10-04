@@ -3,11 +3,20 @@ var express = require('express'),
     redis = require('redis');
 
 var app = express();
+var connected = false;
 
-console.log(process.env.EC21 + ':' + process.env.REDIS_PORT_6379_TCP_PORT);
+while ( connected === false ){
+    console.log(process.env.EC21 + ':' + process.env.REDIS_PORT_6379_TCP_PORT);
+    var client = redis.createClient('6379',process.env.REDISDB);
+    connected = true;
 
+    client.on("error", function (err) {
+       console.log("Redis error encountered", err);
+       connected = false;
+    });
+
+}
 // APPROACH 1: Using environment variables created by Docker
-var client = redis.createClient('6379',process.env.REDISDB);
 //var client = redis.createClient();
 
 

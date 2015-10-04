@@ -6,12 +6,3 @@ node1:
         DNS_ADDR: https://torrid-heat-8734.firebaseio.com
         INSTANCE: EC22
         PORT: 600
-
-node2:
-    build: .
-    ports:
-        - "601:601"
-    environment:
-        DNS_ADDR: https://torrid-heat-8734.firebaseio.com
-        INSTANCE: EC22
-        PORT: 601
